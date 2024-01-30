@@ -4,16 +4,16 @@ import EmailIsland from "../islands/email.tsx";
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-[#86efac]">
-<div className="flex items-center justify-center mb-4">
-  <img
-    src="/logo_indigo.svg"
-    alt="emailchecker"
-    className="mr-4 h-24"
-  />
-  <h1 className="text-6xl font-bold text-center text-indigo-600 pb-2">
-    emailchecker.deno.dev
-  </h1>
-</div>
+      <div className="flex items-center justify-center mb-4">
+        <img
+          src="/logo_indigo.svg"
+          alt="emailchecker"
+          className="mr-4 h-24"
+        />
+        <h1 className="text-6xl font-bold text-center text-indigo-600 pb-2">
+          emailchecker.deno.dev
+        </h1>
+      </div>
       <EmailIsland />
       <div className="mt-10 max-w-4xl p-4 bg-white rounded shadow">
         <h2 className="text-lg font-bold mb-2">API Details:</h2>
@@ -31,9 +31,10 @@ export default function Home() {
       </div>
       <div className="max-w-4xl my-4 text-center">
         <p>
-          <strong>emailchecker.deno.dev</strong> is a completely free service that allows you to check
-          if an email is valid or not and whether the email provider is a free
-          or disposable email provider.
+          <strong>emailchecker.deno.dev</strong>{" "}
+          is a completely free service that allows you to check if an email is
+          valid or not and whether the email provider is a free or disposable
+          email provider.
         </p>
         <p>
           It is built using{" "}

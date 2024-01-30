@@ -11,13 +11,12 @@ export default function EmailIsland() {
     );
     const data = await response.json();
     setResult(JSON.stringify(data, null, 2));
-  }
+  };
 
   const handleCheckEmail = async (e: Event) => {
     e.preventDefault();
     await checkEmail(email);
   };
-  
 
   useEffect(() => {
     checkEmail(email);
@@ -47,9 +46,9 @@ export default function EmailIsland() {
           required
           className="block w-full p-2 border border-gray-300 rounded"
         />
-                <div class="text-xs italic">result automatically fetched on input update</div>
-
-
+        <div class="text-xs italic">
+          result automatically fetched on input update
+        </div>
       </form>
       <div className="mt-8">
         <h2 className="text-lg font-bold mb-2">Request:</h2>
