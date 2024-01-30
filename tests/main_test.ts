@@ -54,7 +54,7 @@ Deno.test("HTTP assert test.", async (t) => {
 
   await t.step("#5 GET /api/check disposable", async () => {
     const resp = await handler(
-      new Request("http://127.0.0.1/api/check?email=user@disposable.com"),
+      new Request("http://127.0.0.1/api/check?email=user@0-mail.com"),
       CONN_INFO,
     );
     const body = await resp.json();

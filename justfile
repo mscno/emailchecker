@@ -1,7 +1,11 @@
 set dotenv-load
 
-check:
+just: fmt check test
+
+fmt:
     deno fmt
+
+check:
     deno task check
 
 dev:

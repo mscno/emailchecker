@@ -3,10 +3,12 @@
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
     "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable -A -",
+    "fetch": "deno run -A ./tasks/fetch.ts",
     "manifest": "deno task cli manifest $(pwd)",
     "start": "deno run -A --watch=static/,routes/ dev.ts",
     "build": "deno run -A dev.ts build",
     "preview": "deno run -A main.ts",
+    "test": "deno test --allow-all --unstable",
     "update": "deno run -A -r https://fresh.deno.dev/update ."
   },
   "lint": {

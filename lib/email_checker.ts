@@ -1,5 +1,6 @@
 let freeDomains: Set<string> = new Set();
-let tempDomains: Set<string> = new Set();
+let disposableDomains: Set<string> = new Set();
+let allowListDomains: Set<string> = new Set();
 
 export async function loadFreeDomains() {
   const text = await Deno.readTextFile("./data/free.txt");
@@ -9,8 +10,14 @@ export async function loadFreeDomains() {
 
 export async function loadDisposableDomains() {
   const text = await Deno.readTextFile("./data/disposable.txt");
-  tempDomains = new Set(text.split("\n"));
-  console.log(`Loaded disposable domains: ${tempDomains.size}`);
+  disposableDomains = new Set(text.split("\n"));
+  console.log(`Loaded disposable domains: ${disposableDomains.size}`);
+}
+
+export async function loadAllowListDomains() {
+  const text = await Deno.readTextFile("./data/allowlist.txt");
+  allowListDomains = new Set(text.split("\n"));
+  console.log(`Loaded allowlist domains: ${allowListDomains.size}`);
 }
 
 function extractDomain(email: string): string {
@@ -20,6 +27,7 @@ export function isValidEmailFormat(email: string): boolean {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
 }
+
 export function isFreeEmail(email: string): boolean {
   const domain = extractDomain(email);
   return freeDomains.has(domain);
@@ -27,7 +35,5 @@ export function isFreeEmail(email: string): boolean {
 
 export function isDisposableEmail(email: string): boolean {
   const domain = extractDomain(email);
-  console.log(domain);
-  console.log(tempDomains);
-  return tempDomains.has(domain);
+  return disposableDomains.has(domain) && !allowListDomains.has(domain);
 }

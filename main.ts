@@ -12,6 +12,13 @@ import config from "./fresh.config.ts";
 
 import { initialize } from "./lib/server.ts";
 
+const port = Number(Deno.env.get("PORT")) || 8080;
+
+config.server = {
+  ...config.server,
+  port,
+};
+
 await initialize();
 
 await start(manifest, config);
