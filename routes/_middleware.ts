@@ -32,6 +32,6 @@ export async function loggermw(req: Request, ctx: FreshContext) {
   const resp = await ctx.next();
   const ms = Date.now() - start;
   const ts = new Date().toISOString();
-  logger.info(`[${ts}] ${req.method} ${req.url} - ${ms}ms`);
+  logger.info(`${req.method} ${req.url} - ${ms}ms`);
   return resp;
 }
