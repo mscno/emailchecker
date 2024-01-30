@@ -1,10 +1,8 @@
 import { FreshContext } from "$fresh/server.ts";
-import Logger from "https://deno.land/x/logger@v1.1.4/logger.ts";
-
-const logger = new Logger();
+import { getLogger } from "$logging/index.ts";
 
 export const handler = [
-  loggermw,
+  getLogger(),
   cors,
 ];
 
@@ -24,13 +22,5 @@ export async function cors(req: Request, ctx: FreshContext) {
     "POST, OPTIONS, GET, PUT, DELETE",
   );
 
-  return resp;
-}
-
-export async function loggermw(req: Request, ctx: FreshContext) {
-  const start = Date.now();
-  const resp = await ctx.next();
-  const ms = Date.now() - start;
-  logger.info(`${req.method} ${req.url} - ${ms}ms`);
   return resp;
 }
