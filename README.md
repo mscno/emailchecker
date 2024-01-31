@@ -1,8 +1,11 @@
 # emailchecker
 
-A simple Deno project to check if an email address is valid and whether it is a disposable email address.
+A simple Deno project to check if an email address is valid and whether it is a
+disposable email address.
 
-The project is a simple Deno server that accepts a GET request with a parameter `email` containing an email address. It then checks the email address against a list of disposable email addresses and returns a JSON response with the result.
+The project is a simple Deno server that accepts a GET request with a parameter
+`email` containing an email address. It then checks the email address against a
+list of disposable email addresses and returns a JSON response with the result.
 
 The emailchecker site and API is available at https://emailchecker.deno.dev
 
@@ -11,7 +14,6 @@ The emailchecker site and API is available at https://emailchecker.deno.dev
 ```
 curl https://emailchecker.deno.dev/api/check?email=example@example
 ```
-
 
 ### Usage
 
@@ -32,7 +34,6 @@ You can run the tests with:
 ```
 deno test -A
 ```
-
 
 ### Refreshing the email lists
 

@@ -1,6 +1,6 @@
 set dotenv-load
 
-just: fmt check test
+just: fmt check fetch test
 
 fmt:
     deno fmt
@@ -16,3 +16,6 @@ deploy:
 
 test:
     deno test --allow-read --allow-env --allow-net
+
+fetch:
+    deno task fetch
